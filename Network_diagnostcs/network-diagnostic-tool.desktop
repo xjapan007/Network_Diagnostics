@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Network Diagnostic Tool
-Comment=Teste le ping et la vitesse de connexion
-Exec=/usr/local/bin/network-diagnostic-tool
-Icon=network-diagnostic-tool
-Terminal=false
-Type=Application
-Categories=Network;System;
