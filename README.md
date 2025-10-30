@@ -2,7 +2,7 @@
 
 Un simple outil graphique pour Windows et Linux permettant de tester la latence (ping) et la vitesse de connexion (speedtest).
 
-![Aperçu de l'application](icon.png)
+![Aperçu de l'application](https://github.com/xjapan007/Network_Diagnostics/issues/1#issue-3571458622.png)
 
 ## Fonctionnalités
 
@@ -13,12 +13,12 @@ Un simple outil graphique pour Windows et Linux permettant de tester la latence 
 
 ## Installation
 
-Allez dans la section **[Releases](https://github.com/VOTRE-NOM/VOTRE-REPO/releases)** de ce dépôt pour télécharger l'installateur.
+Allez dans la section **[Releases](https://github.com/xjapan007/Network_Diagnostics/releases)** de ce dépôt pour télécharger l'installateur.
 
 ---
 
 ### Pour Windows
-1.  Téléchargez `NetworkTool-Setup.exe`.
+1.  Téléchargez `setup_NetDiag.exe`.
 2.  Lancez l'installateur et suivez les instructions. L'application sera ajoutée à votre menu Démarrer.
 
 ---
