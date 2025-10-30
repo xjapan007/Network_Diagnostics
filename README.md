@@ -9,21 +9,28 @@ Un simple outil graphique pour Windows et Linux permettant de tester la latence 
 * Test de Ping vers un hôte personnalisé.
 * Test de vitesse (Download/Upload) via `speedtest-cli`.
 * Interface moderne avec thème clair/sombre.
-* Historique des tests sauvegardé dans un fichier `network_log.txt`.
+* Historique des tests sauvegardé dans le dossier **Documents** de l'utilisateur (sous `Documents/NetworkDiagnostics`).
 
 ## Installation
 
-Allez dans la section **[Releases](https://github.com/xjapan007/Network_Diagnostics/releases)** de ce dépôt pour télécharger l'installateur.
+Allez dans la section **[Releases](https://github.com/xjapan007/Network_Diagnostics/releases)** de ce dépôt pour télécharger l'installateur de votre système.
 
 ---
 
 ### Pour Windows
-1.  Téléchargez `setup_NetDiag.exe`.
-2.  Lancez l'installateur et suivez les instructions. L'application sera ajoutée à votre menu Démarrer.
+
+1.  Téléchargez `setup_NetDiag.exe` (ou le fichier d'installation `.exe` de la dernière version).
+2.  Lancez l'installation.
+
+> **Note Importante :** L'installation doit se faire en **mode Administrateur** pour pouvoir s'écrire dans `Program Files`.
+> Faites un **clic droit** sur le fichier `setup_NetDiag.exe` et choisissez "**Exécuter en tant qu'administrateur**".
+
+3.  Une fois installé, lancez l'application depuis votre menu Démarrer.
 
 ---
 
 ### Pour Linux (Debian/Ubuntu)
+
 1.  Téléchargez les 4 fichiers de la "Release" Linux :
     * `main` (le binaire)
     * `install.sh` (le script d'installation)
@@ -41,15 +48,18 @@ Allez dans la section **[Releases](https://github.com/xjapan007/Network_Diagnost
 4.  L'application sera disponible dans votre menu Démarrer.
 
 ---
+
 ## Pour les développeurs (Code Source)
 
 Ce projet est écrit en Python avec la bibliothèque CustomTkinter.
 
 ### Prérequis
+
 * Python 3.x
 * `pip install customtkinter speedtest-cli`
 
 ### Lancer depuis le code
+
 1.  Clonez ce dépôt.
 2.  Lancez : `python3 main.py`
 

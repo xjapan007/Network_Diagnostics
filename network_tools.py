@@ -1,11 +1,10 @@
-import speedtest
 import subprocess
+import speedtest
 import platform
 import datetime
 import time
 import locale
 
-# (La fonction _decode_bytes ne change pas)
 def _decode_bytes(byte_string):
     if not byte_string:
         return ""
@@ -23,14 +22,31 @@ def _decode_bytes(byte_string):
             continue 
     return byte_string.decode('cp1252', errors='replace')
 
-# (La fonction run_ping_test ne change pas)
 def run_ping_test(host="google.com", count=4):
+    """
+    Lance un test ping en forçant l'IPv4 et en cachant la fenêtre console.
+    """
+    
+    # 1: On ajoute le flag '-4' pour forcer l'IPv4
     param = '-n' if platform.system().lower() == 'windows' else '-c'
-    commande = ['ping', param, str(count), host]
+    commande = ['ping', '-4', param, str(count), host]
+
+    # 2: On prépare un flag pour ne PAS créer de fenêtre console
+    creation_flags = 0
+    if platform.system().lower() == 'windows':
+        # Cette constante (0x08000000) est subprocess.CREATE_NO_WINDOW
+        creation_flags = 0x08000000 
+
     try:
-        result = subprocess.run(commande, capture_output=True, check=True)
+        # On ajoute le paramètre 'creationflags=creation_flags' à l'appel
+        result = subprocess.run(commande, 
+                                capture_output=True, 
+                                check=True, 
+                                creationflags=creation_flags)
+        
         output_str = _decode_bytes(result.stdout)
         return {"success": True, "output": output_str.strip(), "timestamp": datetime.datetime.now().isoformat()}
+    
     except subprocess.CalledProcessError as e:
         output_str = _decode_bytes(e.stdout)
         error_str = _decode_bytes(e.stderr)
@@ -38,12 +54,7 @@ def run_ping_test(host="google.com", count=4):
     except Exception as e:
         return {"success": False, "output": "", "error": f"Erreur inattendue lors du ping : {e}", "timestamp": datetime.datetime.now().isoformat()}
 
-
-# --- SUPPRIMÉ ---
-# La fonction get_server_list() a été supprimée car elle est bloquée (403 Forbidden)
-
-
-# --- MODIFIÉ : run_speed_test utilise TOUJOURS le meilleur serveur ---
+# --- run_speed_test utilise TOUJOURS le meilleur serveur ---
 def run_speed_test(log_callback=None):
     """
     Lance un speedtest en utilisant le meilleur serveur automatiquement.

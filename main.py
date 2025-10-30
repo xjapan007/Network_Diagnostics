@@ -16,6 +16,29 @@ import threading
 import datetime
 import sys
 
+def get_log_path():
+    
+    try:
+        # Trouve le dossier C:\Users\[VotreNom]
+        user_profile = os.path.expanduser('~')
+        
+        # Crée le chemin C:\Users\[VotreNom]\Documents
+        documents_folder = os.path.join(user_profile, 'Documents')
+        
+        # Crée un sous-dossier "NetworkDiagnostics" pour vos logs
+        app_log_folder = os.path.join(documents_folder, 'NetworkDiagnostics')
+        
+        # Crée le dossier s'il n'existe pas
+        os.makedirs(app_log_folder, exist_ok=True) 
+        
+        # Retourne le chemin complet du fichier
+        return os.path.join(app_log_folder, 'network_log.txt')
+        
+    except Exception as e:
+        print(f"Erreur lors de la création du dossier log dans Documents: {e}")
+        # En cas d'échec (très rare), on se rabat sur le dossier local
+        return 'network_log.txt'
+        
 from network_tools import run_ping_test, run_speed_test
 
 # (Configuration CTk... )
