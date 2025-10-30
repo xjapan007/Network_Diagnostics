@@ -52,3 +52,9 @@ Ce projet est écrit en Python avec la bibliothèque CustomTkinter.
 ### Lancer depuis le code
 1.  Clonez ce dépôt.
 2.  Lancez : `python3 main.py`
+
+## ❤️ Soutenir le projet
+
+Si ce projet vous est utile et que vous souhaitez me remercier, vous pouvez m'offrir un café !
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P21NKY2H)
